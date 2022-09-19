@@ -13,7 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $title = 'My Movies';
-    return view('home', compact('title'));
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
