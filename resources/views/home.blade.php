@@ -6,15 +6,19 @@
 <h1>{{ env('APP_NAME') }}</h1>
 <section id="movies">
     <div class="d-flex flex-wrap">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+        @forelse ($movies as $movie)   
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">{{$movie->title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{$movie->original_title}}</h6>
+                <p class="card-text">{{$movie->nationality}}</p>
+                <p class="card-text">{{$movie->date}}</p>
+                <p class="card-text">{{$movie->vote}}</p>
+                </div>
             </div>
-        </div>
+            @empty
+            <p> No movie found</p>
+        @endforelse
     </div>
 </section>
 
